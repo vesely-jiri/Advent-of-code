@@ -21,8 +21,8 @@ public class Main {
             String line = reader.readLine();
             String[] split = line.trim().split(",");
             long result = 0;
-            for (int i = 0; i < split.length; i++) {
-                result += validator.getNotValidId(split[i]);
+            for (String s : split) {
+                result += validator.getNotValidId(s);
             }
 
             System.out.println("Summary of invalid ids is: " + result);
