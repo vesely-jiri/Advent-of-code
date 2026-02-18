@@ -1,4 +1,4 @@
-package cz.jpcz.utils;
+package cz.jpcz;
 
 public class Main {
     public static void main(String[] args) {
