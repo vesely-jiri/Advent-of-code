@@ -1,34 +1,22 @@
 package cz.jpcz;
 
-import cz.jpcz.utils.JoltageFinder;
+import cz.jpcz.utils.GridChecker;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Objects;
 
 public class Main {
+
+    private static final String  SAMPLE_FILE = "/data.txt";
+    private static final int SURROUNDING_LIMIT = 3;
+    private static final boolean REMOVE_OBJECTS = true;
+
     public static void main(String[] args) {
-
-        System.out.println("https://adventofcode.com/2025/day/3");
-
-        JoltageFinder finder = new JoltageFinder();
-
-        try (BufferedReader reader  = new BufferedReader(
-                new InputStreamReader(Objects.requireNonNull(Main.class.getResourceAsStream("/data.txt")))
-        )) {
-
-            String line;
-            long result = 0;
-            while ((line = reader.readLine()) != null) {
-                result += finder.findLargest(line,12);
-            }
-
-            System.out.println("Sum of largest joltages: " + result);
-
-        } catch (IOException e) {
-            e.printStackTrace();
+        System.out.println("https://adventofcode.com/2025/day/4");
+        GridChecker checker = new GridChecker(SAMPLE_FILE);
+        int result = checker.countAllObjects(SURROUNDING_LIMIT, REMOVE_OBJECTS);
+        if (REMOVE_OBJECTS) {
+            System.out.println("There are " + result + " objects, that can be removed");
+        } else {
+            System.out.println("There are " + result + " objects, that have less than " + (SURROUNDING_LIMIT + 1) + " surroundings");
         }
-
     }
 }
