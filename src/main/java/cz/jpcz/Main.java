@@ -1,6 +1,6 @@
 package cz.jpcz;
 
-import cz.jpcz.utils.FoodContainer;
+import cz.jpcz.utils.HomeworkResolver;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -10,7 +10,7 @@ import java.util.Objects;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("https://adventofcode.com/2025/day/5");
+        System.out.println("https://adventofcode.com/2025/day/6");
 
         try (BufferedReader reader = new BufferedReader(
                 new InputStreamReader(
@@ -19,16 +19,14 @@ public class Main {
                         )
                 )
         )) {
-
             List<String> lines = reader.lines().toList();
 
-            FoodContainer container = new FoodContainer(lines);
+            HomeworkResolver resolver = new HomeworkResolver(lines);
 
-            int result = container.getFreshFoodCount();
-            System.out.println("There are " + result + " fresh ingredients");
+            long result = resolver.resolve();
 
-            long result2 = container.getFreshSpace();
-            System.out.println("There is total of " + result2 + " space for fresh food");
+            System.out.println("Result: " + result);
+
 
         } catch (Exception e) {
 
